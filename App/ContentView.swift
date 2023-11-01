@@ -9,13 +9,13 @@ import ConfettiSwiftUI
 import SwiftUI
 
 struct ContentView: View {
-    @State private var trigger: String = ""
+    @State private var counter = 0
     
     var body: some View {
-        Button("🎉") {
-            trigger += " "
+        Button("Press to animate 🎉") {
+            counter += 1
         }
-        .confettiCannon(trigger: $trigger)
+        .confettiCannon(counter: $counter)
     }
 }
 

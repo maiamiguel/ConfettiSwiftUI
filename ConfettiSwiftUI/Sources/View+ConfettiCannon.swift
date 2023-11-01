@@ -30,7 +30,7 @@ public extension View {
     /// ```
     ///
     /// - Parameters:
-    ///   - trigger: on any change of this variable the animation is run
+    ///   - counter: on any change of this variable the animation is run
     ///   - num: amount of confettis
     ///   - colors: list of colors that is applied to the default shapes
     ///   - confettiSize: size that confettis and emojis are scaled to
@@ -43,8 +43,8 @@ public extension View {
     ///   - repetitions: number of repetitions of the explosion
     ///   - repetitionInterval: duration between the repetitions
     ///
-    @ViewBuilder func confettiCannon<T>(
-        trigger: Binding<T>,
+    @ViewBuilder func confettiCannon(
+        counter: Binding<Int>,
         num: Int = 20,
         confettis: [ConfettiType] = ConfettiType.allCases,
         colors: [Color] = [.blue, .red, .green, .yellow, .pink, .purple, .orange],
@@ -57,11 +57,11 @@ public extension View {
         radius: CGFloat = 300,
         repetitions: Int = 0,
         repetitionInterval: Double = 1.0
-    ) -> some View where T: Equatable {
+    ) -> some View {
         ZStack {
             self
             ConfettiCannon(
-                trigger: trigger,
+                counter: counter,
                 num: num,
                 confettis: confettis,
                 colors: colors,
